@@ -2,7 +2,98 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <title>PhraseAnchor</title>
 </head>
 <body>
+<h1>Phrase Anchor</h1>
+※本アプリはベータ版を公開中です。</br>
+正式リリース時に使い方や利用規約などの大幅変更がある可能性がありますので都度ご確認下さい。</br>
+<a href="./data/PhraseAnchor/PhraseAnchor_20260103.zip">ダウンロード</a></br>
+
+
+<h2>アプリ概要</h2>
+本アプリは VocalShifter のプロジェクトファイルを読み込み</br>
+無声になっている箇所の始点、終点に TIME 制御点を追加するツールです。</br>
+
+<img src="./media/image/before_after.png">
+
+
+<h2>利用規約</h2>
+<ul>
+    <li>本アプリはフリーソフトウェアです。</li>
+    <li>本アプリは商用、非商用問わず使用可能です。</li>
+    <li>本アプリを使用することで生じた不具合、トラブル、損害等に関してアプリ製作者は一切の責任を負わないものとします。</li>
+    <li>本アプリを起動した時点で、本規約に同意したものとみなします。</li>
+</ul>
+
+
+<h2>セットアップ方法</h2>
+<ol>
+    <li>".NET6 Desktop Runtime" のインストール</li>
+        本ツールは .NET6 Desktop Runtime が必要です。</br>
+        インストールしていない場合は下記のサイトからインストーラを入手してインストールして下さい。</br>
+        <a href="https://dotnet.microsoft.com/ja-jp/download/dotnet/thank-you/runtime-desktop-6.0.20-windows-x64-installer">ダウンロード (.NET Desktop Runtime 6.0.20)</a></br>
+</ol>
+
+
+<h2>使い方</h2>
+PhraseAnchor.exe を起動し下記手順で操作して下さい。</br>
+
+<ol>
+    <li>プロジェクトファイルの読み込み</li>
+        [ファイルを開く] ボタンで .vshp ファイルを開いて下さい。</br>
+
+    <li>TIME 制御点生成のパラメータ（閾値）設定</li>
+    <ul>
+        <li>2-1. TIME 制御点を自動生成するアイテムを選択して下さい。</li>
+            と、記述のある表にて生成させたいアイテムの行にある [処理対象] にチェックを入れて下さい。</br>
+
+        <li>2-2. TIME 制御点の生成条件設定</li>
+            TIME 制御点が意図しない箇所に生成されたり、まったく生成されない場合にこの項目の値を調整して下さい。</br>
+            <b>おおまかな調整方針「区間の長さ[ms]：制御点生成しない」に 50 ～ 100 </b>を入れ、出力結果を見ながら微調整してみて下さい。</br>
+
+        <ul>
+            <li>区間の長さ[ms]：制御点生成しない</li>
+                一瞬だけ無声になっている個所に制御点を生成したくない場合に設定して下さい。</br>
+
+            <li>区間の長さ[ms]：1点だけ生成</li>
+                一瞬だけ無声になっている個所に制御点を生成したいけれど2点生成してほしくない場合に設定して下さい。</br>
+
+            <li>DYN[ms]</li>
+                ほぼ無声なものの完全に無声でない個所を無声扱いとしたい場合に設定して下さい。</br>
+                ※無声判定は調整後の DYN の値で判定してる為、VocalShifter で DYN を修正することでも調整ができます。</br>
+        </ul>
+    </ul>
+    <li>プロジェクトファイルの書き出し</li>
+        [名前を付けて保存] ボタンにて出力先を指定することで</br>
+        TIME 制御点が追加されたプロジェクトファイルが出力されます。</br>
+</ol>
+
+
+<h2>トラブルシューティング</h2>
+<ul>
+    <li>アプリ起動時に "Yout must install .Net Desktop Runtime to run this application." と表示される</li>
+        .NET6 Desktop Runtime のインストールが正しく行えていない可能性があります。</br>
+        .NET Core Runtime や .NET Runtime などではなく、 Desktop版がインストールされているか確認して下さい。</br>
+        ※ver.6.0.20 で動作確認済。</br>
+</ul>
+
+
+<h2>やれたらやるわ～くらいの予定（今後対応したいこと）</h2>
+<ul>
+    <li>プログラムの改修。</li>
+    <li>UI の改修。</li>
+    <li>プロジェクトファイル読み込みのドラッグアンドドロップ対応。</li>
+    <li>.NET のバージョン更新。</li>
+    <li>.NET Desktop Runtime インストール不要なバージョンの提供。</li>
+</ul>
+
+
+<h2>ライセンス</h2>
+<ul>
+    <li>VocalShifterライブラリ vslib</li>
+        Copyright (c) 2014 あっきー</br>
+        <a href="http://ackiesound.ifdef.jp/soko.html">http://ackiesound.ifdef.jp/soko.html</a></br>
+</ul>
 </body>
 </html>
